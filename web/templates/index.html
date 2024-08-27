@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GROUPIE TRACKER</title>
+    <link rel="stylesheet" href="static/css/normalized.css">
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <div class="container title_container index-container">
+        <h1 class="title">GROUPIE TRACKER</h1>
+    </div>
+    <div class="container artist_container index-container">
+        {{range .Artist}}
+            <a href="/artist?id={{.ID}}" class="link link_id">
+                <div class="container_body">
+                    <div class="card_artist">
+                        <img src="{{.Image}}" alt="{{.Name}}" class="card_img">
+                        <h4 class="card_title">{{.Name}} </h4>
+                    </div>
+                </div>
+            </a>
+        {{end}}  
+    </div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist</title>
+    <link rel="stylesheet" href="static/css/normalized.css">
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <div class="container container_artist artist-container">
+        <div>
+            <a href="/" class="link link_back"><button class="btn btn_artist">Back</button></a>
+        </div>
+        <div class="block_artist">
+            <b>{{.Artist.Name}}</b>
+        </div>
+        <div class="block_img">
+            <img src="{{.Artist.Image}}" alt="{{.Artist.Name}}">
+        </div>
+        <div class="block block_artist">
+            <ul>
+                <b>Members:</b>
+                {{range .Artist.Members}}
+                <li class="list list_members">{{.}}</li>
+                {{end}}
+            </ul>
+        </div>
+        <div class="block_date">
+            <b>Creation Date:</b> {{.Artist.CreationDate}}
+        </div>
+        <div class="block_album">
+            <b>First Album:</b> {{.Artist.FirstAlbum}}
+        </div>
+        <div class="block_location">
+            <b>Locations:</b>
+            <ul>
+                {{range .Locations.Locations}}
+                <li class="list list_location">{{.}}</li>
+                {{end}}
+            </ul>
+        </div>
+        <div class="block_relation">
+            <b>Relations:</b>
+            <ul>
+                {{range $key, $value := .Relations.DatesLocations}}
+                <li class="list list_relation"><b>{{$key}}:</b>
+                    <ul>
+                        {{range $value}}
+                        <li>{{.}}</li>
+                        {{end}}
+                    </ul>
+                </li>
+                {{end}}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
